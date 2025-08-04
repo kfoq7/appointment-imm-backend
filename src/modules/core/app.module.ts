@@ -7,6 +7,7 @@ import { RoleModule } from '@modules/role/role.module'
 import { DoctorModule } from '@modules/doctor/doctor.module'
 import { PatientModule } from '@modules/patient/patient.module'
 import { AppointmentModule } from '@modules/appointment/appointment.module'
+import { PermissionModule } from '@modules/permission/permission.module'
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { AppointmentModule } from '@modules/appointment/appointment.module'
     DoctorModule,
     PatientModule,
     AppointmentModule,
+    PermissionModule,
   ],
 })
 export class AppModule {}
