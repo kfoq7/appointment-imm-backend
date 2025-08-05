@@ -8,11 +8,13 @@ import { DoctorModule } from '@modules/doctor/doctor.module'
 import { PatientModule } from '@modules/patient/patient.module'
 import { AppointmentModule } from '@modules/appointment/appointment.module'
 import { PermissionModule } from '@modules/permission/permission.module'
+import { AuditModule } from '@modules/audit/aduit.module'
 
 @Module({
   imports: [
     envConfig(),
     typeOrmModule(),
+    AuditModule,
     UserModule,
     RoleModule,
     DoctorModule,
