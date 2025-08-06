@@ -11,6 +11,7 @@ import {
 import { Doctor } from '@modules/doctor'
 import { Patient } from '@modules/patient'
 import { AppointmentStatus } from './appointment-status.entity'
+import { Hour } from '@modules/hour'
 
 @Entity()
 export class Appointment {
@@ -27,13 +28,17 @@ export class Appointment {
   @Column({ type: 'date', nullable: true })
   appointmentDate: Date
 
+  @ManyToOne('Patient', 'patient.appointments')
+  @JoinColumn()
+  patient: Relation<Patient>
+
   @ManyToOne('AppointmentStatus', 'appointment.status', { nullable: true })
   @JoinColumn()
   status: Relation<AppointmentStatus>
 
-  @ManyToOne('Patient', 'patient.appointments')
+  @ManyToOne('Hour', 'hour.appointment', { nullable: true })
   @JoinColumn()
-  patient: Relation<Patient>
+  hour: Relation<Hour>
 
   @CreateDateColumn()
   createdAt: Date
