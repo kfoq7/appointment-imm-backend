@@ -4,14 +4,16 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   Relation,
   UpdateDateColumn,
 } from 'typeorm'
 import { Doctor } from '@modules/doctor'
 import { Patient } from '@modules/patient'
-import { AppointmentStatus } from './appointment-status.entity'
 import { Hour } from '@modules/hour'
+import { AppointmentStatus } from './appointment-status.entity'
+import { AppointmentProcedure } from './appointment-procedure.entity'
 
 @Entity()
 export class Appointment {
@@ -39,6 +41,9 @@ export class Appointment {
   @ManyToOne('Hour', 'hour.appointment', { nullable: true })
   @JoinColumn()
   hour: Relation<Hour>
+
+  @OneToMany('AppointmentProcedure', 'appointment.procedures')
+  procedures: Relation<AppointmentProcedure[]>
 
   @CreateDateColumn()
   createdAt: Date
