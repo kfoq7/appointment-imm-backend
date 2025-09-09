@@ -8,7 +8,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm'
 import { Appointment } from './appointment.entity'
-import { DocumentType } from '../types/enums'
+import { DocumentType } from '@modules/common/types/enums'
 
 @Entity()
 export class Tutor {
